@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Responsive Food, LLC Example</title>
+  <title>Mobile Dropdown Menu Example</title>
   <!-- Link to External CSS -->
   <link rel="stylesheet" href="styles.css">
   <!-- Bootstrap CSS (Version 3.3) -->
@@ -13,57 +13,30 @@
 
   <!-- Navigation Bar -->
   <nav class="navbar navbar-default">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container-fluid">
+      <!-- Brand aligned to the left -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
+        <!-- Menu button for mobile view (xs) -->
+        <button type="button" class="navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
+          <!-- Three horizontal bars for the menu button -->
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Food, LLC</a>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-menu">
-        <ul class="nav navbar-nav navbar-right">
+      
+      <!-- Dropdown Menu for Mobile View -->
+      <div class="collapse visible-xs" id="mobile-menu">
+        <ul class="nav navbar-nav mobile-menu">
           <li><a href="#">Chicken</a></li>
           <li><a href="#">Beef</a></li>
           <li><a href="#">Sushi</a></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
     </div><!-- /.container-fluid -->
   </nav>
-
-  <!-- Responsive Layout Example -->
-  <div class="container">
-    <div class="row">
-      <!-- Desktop View: md-based classes -->
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="box">
-          <h2>Desktop View (md)</h2>
-          <p>This box is styled for desktop views with `col-md-4`.</p>
-        </div>
-      </div>
-
-      <!-- Tablet View: sm-based classes -->
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="box">
-          <h2>Tablet View (sm)</h2>
-          <p>This box adjusts to tablet view with `col-sm-6`.</p>
-        </div>
-      </div>
-
-      <!-- Mobile View: xs-based classes -->
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="box">
-          <h2>Mobile View (xs)</h2>
-          <p>This box adjusts to mobile view with `col-xs-12`.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Page Content -->
   <div class="container">
@@ -79,4 +52,5 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 

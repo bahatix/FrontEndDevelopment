@@ -1,46 +1,165 @@
-/* Custom tall section styling */
-.tall-section {
-  background-color: #f1c40f; /* Distinguishable background color */
-  height: 1000px; /* Set the height to 1000px */
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* Horizontally center the boxes */
-  align-items: center; /* Vertically center the boxes */
-  padding: 20px;
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Custom box styling */
-.box {
-  border: 1px solid #ddd;
-  background-color: #f5f5f5;
-  margin-bottom: 20px;
-  padding: 10px;
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-.box-header {
-  padding: 10px;
-  font-weight: bold;
-  color: white;
+header h1, header h2 {
+    margin-bottom: 20px;
 }
 
-.box-content {
-  padding: 15px;
+/* Hide the "Categories" title by default */
+.hidden {
+    display: none;
 }
 
-/* Specific colors for each box header */
-.bg-chicken {
-  background-color: #e74c3c; /* Red for Chicken */
+/* Menu container */
+.menu {
+    overflow: hidden;
 }
 
-.bg-beef {
-  background-color: #c0392b; /* Darker Red for Beef */
+.menu-item {
+    background-color: #ddd;
+    padding: 40px 20px;
+    margin: 10px;
+    border: 1px solid black;
+    position: relative;
+    box-sizing: border-box;
+    height: 150px; /* Constrain the height */
+    overflow: hidden; /* Hide content that overflows the height */
 }
 
-.bg-sushi {
-  background-color: #f1c40f; /* Yellow for Sushi */
+.menu-item p {
+    margin-top: 20px;
+    color: #333;
 }
 
-p {
-  margin: 0;
+/* Scrollable content on hover */
+.menu-item:hover {
+    cursor: ns-resize; /* Change cursor to resize type */
+    overflow-y: auto; /* Enable scrolling on hover */
 }
 
+/* Hide the scrollbar by default and show only on hover */
+.menu-item::-webkit-scrollbar {
+    width: 0; /* Initially hide the scrollbar */
+}
+
+.menu-item:hover::-webkit-scrollbar {
+    width: 6px; /* Show scrollbar on hover */
+}
+
+.menu-item::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Custom scrollbar color */
+    border-radius: 10px;
+}
+
+/* Menu headers */
+.menu-header {
+    background-color: #ff6666;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid black;
+    font-weight: bold;
+    width: auto; /* Default width for non-mobile views */
+}
+
+.chicken .menu-header {
+    background-color: #f28c8c;
+}
+
+.beef .menu-header {
+    background-color: #cc0000;
+}
+
+.sushi .menu-header {
+    background-color: #f2e27d;
+}
+
+/* Desktop view: 992px and above */
+@media (min-width: 992px) {
+    .menu-item {
+        width: 30%; /* Each item takes up 30% of the width */
+        float: left; /* Float each box to place them side by side */
+    }
+    .menu-item:last-child {
+        margin-right: 0; /* Ensure no extra margin for the last item */
+    }
+}
+
+/* Tablet view: 768px to 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+    .menu-item {
+        width: 47%;
+        float: left;
+        margin-bottom: 20px;
+    }
+
+    .menu-item.sushi {
+        width: 100%;
+        clear: both;
+        margin-top: 20px;
+    }
+}
+
+/* Mobile view: 767px and below */
+@media (max-width: 767px) {
+    /* Hide the "Our Menu" title and display "Categories" */
+    #menu-title {
+        display: none !important; /* Ensure "Our Menu" is hidden */
+    }
+    #categories-title {
+        display: block !important; /* Ensure "Categories" is shown */
+        font-family: 'Courier New', Courier, monospace; /* Different font family */
+        font-size: 18px; /* Smaller font size */
+        text-align: left;
+        margin-left: 10px; /* Align with the first content box */
+    }
+
+    /* Menu items stack vertically */
+    .menu-item {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+
+    /* Full-width titles with centered, wrapping text */
+    .menu-header {
+        width: 100%; /* Make the title take up the full width */
+        text-align: center; /* Center the title text */
+        white-space: normal; /* Allow the text to wrap */
+        position: static; /* Disable absolute positioning */
+        padding: 10px; /* Padding around the title */
+        margin-bottom: 20px; /* Add spacing between the title and the content */
+        font-size: 16px; /* Large enough font to make the title wrap */
+    }
+
+    /* Adjust the specific headers for mobile view with 10 different words */
+    .chicken .menu-header {
+        background-color: #f28c8c;
+        content: "Chicken Cooked By Kevin is Awesome When It's' Done"; /* Example text */
+    }
+
+    .beef .menu-header {
+        background-color: #cc0000;
+        content: "Barbecue is not good for you But Eat It Anyway"; /* Example text */
+    }
+
+    .sushi .menu-header {
+        background-color: #f2e27d;
+        content: "Eat all on this menu it is taste good"; /* Example text */
+    }
+
+    .menu-item p {
+        margin-top: 40px; /* Ensure space between title and content */
+    }
+}

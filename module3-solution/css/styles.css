@@ -1,18 +1,32 @@
 /* styles.css */
 
-/* Custom styles for the page content */
+/* Custom styles for the mobile dropdown menu */
+.mobile-menu {
+  width: 100%; /* Make the dropdown menu full-width */
+  background-color: #f8f9fa; /* Light background color for the dropdown */
+  text-align: center; /* Center align the menu items */
+}
+
+.mobile-menu li {
+  display: block;
+}
+
+.mobile-menu li a {
+  color: #333; /* Text color */
+  padding: 15px 0;
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd; /* Divider between items */
+}
+
+.mobile-menu li a:hover {
+  background-color: #e9ecef; /* Background color change on hover */
+}
+
+/* Box styling for the page content */
 .scroll-content {
   height: 1500px;
   background-color: #f8f9fa;
-}
-
-/* Box styling for responsive layout */
-.box {
-  border: 1px solid #ccc;
-  background-color: #e9ecef;
-  padding: 15px;
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 /* Navbar customization */
@@ -26,14 +40,6 @@
 }
 
 .navbar-default .navbar-brand:hover {
-  color: #ff5722;
-}
-
-.navbar-default .navbar-nav > li > a {
-  color: #777;
-}
-
-.navbar-default .navbar-nav > li > a:hover {
   color: #ff5722;
 }
 

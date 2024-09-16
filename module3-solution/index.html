@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobile Dropdown Menu Example</title>
+  <title>Tall Section Example</title>
   <!-- Link to External CSS -->
   <link rel="stylesheet" href="styles.css">
   <!-- Bootstrap CSS (Version 3.3) -->
@@ -14,33 +14,40 @@
   <!-- Navigation Bar -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <!-- Brand aligned to the left -->
       <div class="navbar-header">
-        <!-- Menu button for mobile view (xs) -->
+        <a class="navbar-brand" href="#">Food, LLC</a>
         <button type="button" class="navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
-          <!-- Three horizontal bars for the menu button -->
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Food, LLC</a>
       </div>
-      
-      <!-- Dropdown Menu for Mobile View -->
-      <div class="collapse visible-xs" id="mobile-menu">
+      <div class="collapse navbar-collapse visible-xs" id="mobile-menu">
         <ul class="nav navbar-nav mobile-menu">
           <li><a href="#">Chicken</a></li>
           <li><a href="#">Beef</a></li>
           <li><a href="#">Sushi</a></li>
         </ul>
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </nav>
 
   <!-- Page Heading -->
   <div class="container">
-    <h1 class="text-center">Our Menu</h1> <!-- Centered Heading -->
+    <h1 class="text-center">Our Menu</h1>
+  </div>
+
+  <!-- Tall Section with Bootstrap Grid -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 tall-section">
+        <h2 class="text-center">Welcome to Our Tall Section</h2>
+        <p class="text-center">This section is intentionally tall to demonstrate scrolling.</p>
+        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+        <!-- You can fill this out with more text if necessary, or we set a height via CSS -->
+      </div>
+    </div>
   </div>
 
   <!-- Page Content -->
@@ -57,5 +64,3 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

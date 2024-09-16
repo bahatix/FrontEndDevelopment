@@ -1,5 +1,16 @@
 /* styles.css */
 
+/* Custom tall section styling */
+.tall-section {
+  background-color: #f1c40f; /* Distinguishable background color */
+  height: 1000px; /* Set the height to 1000px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  color: #333; /* Text color */
+}
+
 /* Custom styles for the mobile dropdown menu */
 .mobile-menu {
   width: 100%; /* Make the dropdown menu full-width */
@@ -23,7 +34,7 @@
   background-color: #e9ecef; /* Background color change on hover */
 }
 
-/* Box styling for the page content */
+/* Scroll content styling */
 .scroll-content {
   height: 1500px;
   background-color: #f8f9fa;
@@ -50,3 +61,4 @@ h1 {
 p {
   color: #666;
 }
+

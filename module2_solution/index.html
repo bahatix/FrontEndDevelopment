@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Menu</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tall Section with Boxes Example</title>
+  <!-- Link to External CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap CSS (Version 3.3) -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Menu title -->
-    <header>
-        <h1>Our Menu</h1>
-        <!-- Hidden by default, will be displayed in mobile view -->
-        <h2 id="categories-title" class="hidden">Categories</h2>
-    </header>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Food, LLC</a>
+        <button type="button" class="navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse visible-xs" id="mobile-menu">
+        <ul class="nav navbar-nav mobile-menu">
+          <li><a href="#">Chicken</a></li>
+          <li><a href="#">Beef</a></li>
+          <li><a href="#">Sushi</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Menu section -->
-    <section class="menu">
-        <div class="menu-item chicken">
-            <div class="menu-header">Chicken Cooked By Kevin is Awesome When It's' Done</div>
-            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+  <!-- Tall Section with Bootstrap Grid and Boxes -->
+  <div class="container-fluid">
+    <div class="row tall-section">
+      <!-- Chicken Box -->
+      <div class="col-xs-12 col-sm-4">
+        <div class="box">
+          <div class="box-header bg-chicken">
+            Chicken Cooked By Kevin is Awesome When It's Done
+          </div>
+          <div class="box-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+          </div>
         </div>
-        <div class="menu-item beef">
-            <div class="menu-header">Beef is not good for you But Eat It Anyway </div>
-            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-        </div>
-        <div class="menu-item sushi">
-            <div class="menu-header">Eat all Sushi on menu it tastes good</div>
-            <p>lorem ipsum dolor sit amet, consectetur adipicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-        </div>
-    </section>
+      </div>
 
+      <!-- Beef Box -->
+      <div class="col-xs-12 col-sm-4">
+        <div class="box">
+          <div class="box-header bg-beef">
+            Beef is not good for you But Eat It Anyway
+          </div>
+          <div class="box-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sushi Box -->
+      <div class="col-xs-12 col-sm-4">
+        <div class="box">
+          <div class="box-header bg-sushi">
+            Eat all Sushi on menu it tastes good
+          </div>
+          <div class="box-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery and Bootstrap JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+

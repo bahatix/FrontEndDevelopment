@@ -1,2 +1,39 @@
+/* styles.css */
+
+/* Custom styles for the page content */
+.scroll-content {
+  height: 1500px;
+  background-color: #f8f9fa;
+}
+
+/* Navbar customization */
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+  color: #5a5a5a;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #ff5722;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #777;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #ff5722;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
 
   

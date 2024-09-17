@@ -22,7 +22,7 @@
 /* For tablet view (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
   #section-chicken, #section-beef {
-    width: 50%;  /* First two sections take half of the row */
+    width: 47%;  /* First two sections take half of the row */
     float: left; /* Float them side by side */
   }
 

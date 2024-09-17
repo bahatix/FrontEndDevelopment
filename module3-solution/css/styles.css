@@ -1,55 +1,42 @@
-
-/* Custom tall section styling */
-.tall-section {
-  background-color: #f1c40f; /* Distinguishable background color */
-  padding: 20px; /* Add padding to the tall section */
-}
-
-/* Custom section styling */
+/* Base styles for all sections */
 .section {
-  position: relative; /* Allows positioning of the title relative to the section */
-  margin-bottom: 20px; /* Adds spacing between sections */
-}
-
-/* Section title styling */
-.section-title {
-  position: absolute;
-  top: 10px;   /* Always positioned 10px from the top */
-  right: 10px; /* Always positioned 10px from the right */
-  background-color: rgba(0, 0, 0, 0.8); /* Dark background for the title */
-  color: white;
-  padding: 5px 10px;
-  font-weight: bold;
-  border-radius: 3px;
-  z-index: 1000; /* Ensure the title stays on top */
-}
-
-/* Custom box styling */
-.box {
-  border: 1px solid #ddd;
   background-color: #f5f5f5;
+  margin-bottom: 20px;
   padding: 10px;
+  border: 1px solid #ddd;
 }
 
-.box-content {
-  padding: 15px;
+.section-title {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  position: relative;
+  font-weight: bold;
 }
 
-p {
-  margin: 0;
-  word-wrap: break-word; /* Ensure text wraps correctly in mobile view */
+/* Default mobile view - each section takes full width */
+.section {
+  width: 100%;
 }
 
-/* Specific colors for each box header */
-.bg-chicken {
-  background-color: #e74c3c; /* Red for Chicken */
+/* For tablet view (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  #section-chicken, #section-beef {
+    width: 50%;  /* First two sections take half of the row */
+    float: left; /* Float them side by side */
+  }
+
+  #section-sushi {
+    width: 100%; /* Third section takes full row */
+    clear: both; /* Ensure it's on a new line */
+  }
 }
 
-.bg-beef {
-  background-color: #c0392b; /* Darker Red for Beef */
-}
-
-.bg-sushi {
-  background-color: #f1c40f; /* Yellow for Sushi */
+/* For desktop view (992px and above) - can be adjusted as needed */
+@media (min-width: 992px) {
+  .section {
+    width: 33.33%; /* Each section takes one-third of the row */
+    float: left;    /* Float them side by side */
+  }
 }
 

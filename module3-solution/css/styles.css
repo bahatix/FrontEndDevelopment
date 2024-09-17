@@ -1,9 +1,10 @@
-/* Base styles for all sections */
+/* Basic section styling */
 .section {
   background-color: #f5f5f5;
-  margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ddd;
+  height: 300px; /* Fixed height for scrollable content */
+  overflow: auto; /* Enable scrolling if content exceeds height */
 }
 
 .section-title {
@@ -12,31 +13,44 @@
   padding: 10px;
   position: relative;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Default mobile view - each section takes full width */
-.section {
-  width: 100%;
+.box {
+  padding: 15px;
 }
 
-/* For tablet view (768px - 991px) */
+p {
+  margin: 0;
+  word-wrap: break-word; /* Ensure text wraps correctly */
+}
+
+/* Mobile view (default) - stacked sections */
+@media (max-width: 767px) {
+  .section {
+    width: 100%;
+  }
+}
+
+/* Tablet view (768px - 991px) - first two sections in one row, third section full row */
 @media (min-width: 768px) and (max-width: 991px) {
-  #section-chicken, #section-beef {
-    width: 47%;  /* First two sections take half of the row */
-    float: left; /* Float them side by side */
+  .col-sm-6 {
+    float: left;
+    width: 50%;
   }
 
   #section-sushi {
-    width: 100%; /* Third section takes full row */
-    clear: both; /* Ensure it's on a new line */
+    clear: both;
+    width: 100%;
   }
 }
 
-/* For desktop view (992px and above) - can be adjusted as needed */
+/* Desktop view (992px and above) - all three sections in one row */
 @media (min-width: 992px) {
   .section {
-    width: 33.33%; /* Each section takes one-third of the row */
-    float: left;    /* Float them side by side */
+    width: 33.33%;
+    float: left;
   }
 }
+
 

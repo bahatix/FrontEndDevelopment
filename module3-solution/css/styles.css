@@ -52,3 +52,9 @@ p {
   word-wrap: break-word; /* Ensure text wraps correctly */
 }
 
+/* Tall section */
+.tall-section {
+  height: 1000px;  /* Make the outer section tall */
+  background-color: #f1c40f;
+  padding: 20px;
+}

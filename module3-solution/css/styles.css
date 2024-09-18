@@ -55,6 +55,6 @@ p {
 /* Tall section */
 .tall-section {
   height: 1000px;  /* Make the outer section tall */
-  background-color: #f1c40f;
+  background-color: yellow;  /* Set background color to yellow */
   padding: 20px;
 }

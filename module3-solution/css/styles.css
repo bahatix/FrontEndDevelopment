@@ -16,15 +16,15 @@
 
 .box {
   padding: 15px;
-  height: 150px;   /* Constrain the height of the boxes */
-  overflow: hidden; /* Hide content that overflows the box */
-  cursor: default;  /* Default cursor */
+  height: 150px;   
+  overflow: hidden; 
+  cursor: default;  
 }
 
 /* When hovering over the box */
 .box:hover {
-  overflow-y: scroll;   /* Show vertical scrollbar on hover */
-  cursor: ns-resize;    /* Change cursor to resize type */
+  overflow-y: scroll;   
+  cursor: ns-resize;    
 }
 
 /* Hide scrollbar when not hovering */
@@ -34,7 +34,7 @@
 
 /* Show scrollbar only on hover */
 .box:hover::-webkit-scrollbar {
-  display: block; /* Display scrollbar */
+  display: block; 
 }
 
 /* Style for the scrollbar */
@@ -43,18 +43,18 @@
 }
 
 .box::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.5); /* Dark scrollbar */
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 4px;
 }
 
 p {
   margin: 0;
-  word-wrap: break-word; /* Ensure text wraps correctly */
+  word-wrap: break-word;
 }
 
-/* Tall section */
+/* Really Tall section */
 .tall-section {
-  height: 1000px;  /* Make the outer section tall */
-  background-color: yellow;  /* Set background color to yellow */
+  height: 1000px;  
+  background-color: yellow;  
   padding: 20px;
 }

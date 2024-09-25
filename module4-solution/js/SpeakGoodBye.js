@@ -18,7 +18,7 @@ var speakWord = "Good Bye";
 // See Lecture 52, part 2
 ( function (window) {
   var byeSpeaker = {};
-  var byeSpeak.speak = function (name) {
+  var byeSpeaker.speak = function (name) {
       console.log(speakWord + " " + name);
   }
  window.byeSpeaker = bySpeaker;

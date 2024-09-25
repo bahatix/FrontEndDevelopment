@@ -21,7 +21,7 @@
   };
 
   byeSpeaker.speakSimple = function (name) {
-    return speakWord + name;
+    return speakWord + " " + name;
   };
   
 

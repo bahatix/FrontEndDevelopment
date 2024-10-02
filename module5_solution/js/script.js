@@ -161,7 +161,38 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+// Load the about page view
+dc.loadAboutPage = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    "snippets/about-snippet.html", // URL to the about snippet
+    buildAndShowAboutHTML,
+    false
+  );
+};
 
+// Builds HTML for the about page and inserts random rating
+function buildAndShowAboutHTML(aboutHtml) {
+  // Generate a random rating between 1 and 5
+  var randomRating = Math.floor(Math.random() * 5) + 1;
+
+  // Create star icons based on the rating
+  var starsHtml = "";
+  for (var i = 0; i < 5; i++) {
+    if (i < randomRating) {
+      starsHtml += "<span class='fa fa-star checked'></span>"; // Filled star
+    } else {
+      starsHtml += "<span class='fa fa-star'></span>"; // Empty star
+    }
+  }
+
+  // Insert stars into the aboutHtml
+  aboutHtml = insertProperty(aboutHtml, "star-rating", starsHtml);
+
+  // Insert the HTML into the main content
+  insertHtml("#main-content", aboutHtml);
+}
+  
 // Builds HTML for the categories page based on the data
 // from the server
 function buildAndShowCategoriesHTML (categories) {

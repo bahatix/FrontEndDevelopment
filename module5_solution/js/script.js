@@ -171,27 +171,38 @@ dc.loadAboutPage = function () {
   );
 };
 
-// Builds HTML for the about page and inserts random rating
-function buildAndShowAboutHTML(aboutHtml) {
-  // Generate a random rating between 1 and 5
-  var randomRating = Math.floor(Math.random() * 5) + 1;
 
-  // Create star icons based on the rating
-  var starsHtml = "";
+// Generate a random number between 1 and 5 (inclusive)
+function getRandomRating() {
+  return Math.floor(Math.random() * 5) + 1;
+}
+
+function buildAndShowAboutHTML(aboutHtml) {
+  // Get a random rating between 1 and 5
+  var randomRating = getRandomRating();
+
+  // Prepare an array to hold classes for each star
+  var starClasses = [];
+
+  // Fill the starClasses array with "fa fa-star" for filled stars
+  // and "fa fa-star-o" for empty stars based on the random rating
   for (var i = 0; i < 5; i++) {
     if (i < randomRating) {
-      starsHtml += "<span class='fa fa-star checked'></span>"; // Filled star
+      starClasses.push("fa fa-star"); // Filled star
     } else {
-      starsHtml += "<span class='fa fa-star'></span>"; // Empty star
+      starClasses.push("fa fa-star-o"); // Empty star
     }
   }
 
-  // Insert stars into the aboutHtml
-  aboutHtml = insertProperty(aboutHtml, "star-rating", starsHtml);
+  // Replace the class placeholders in aboutHtml with the appropriate classes
+  for (var j = 0; j < starClasses.length; j++) {
+    aboutHtml = insertProperty(aboutHtml, "class" + (j + 1), starClasses[j]);
+  }
 
-  // Insert the HTML into the main content
+  // Insert the modified HTML into the main content
   insertHtml("#main-content", aboutHtml);
 }
+
   
 // Builds HTML for the categories page based on the data
 // from the server

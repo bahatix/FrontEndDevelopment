@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Message Display Box</h1>
+        <div class="input-box">
+            <input type="text" id="messageInput" placeholder="Type your message here...">
+            <button onclick="displayMessage()">Display Message</button>
+        </div>
+        <div class="output-box" id="outputMessage">
+            <!-- The message will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function displayMessage() {
+            var message = document.getElementById("messageInput").value;
+            document.getElementById("outputMessage").textContent = message;
+        }
+    </script>
+</body>
+</html>

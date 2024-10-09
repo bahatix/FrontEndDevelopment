@@ -1,21 +1,42 @@
 // app.js
 
-// Declare the AngularJS module
-var app = angular.module('LunchCheck', []);
+(function() {
+    'use strict';
 
-// Define the controller and inject $scope using the $inject property to prevent minification issues
-app.controller('LunchCheckController', ['$scope', function($scope) {
-    $scope.outputMessage = '';  // Initial empty message
+    // Define the AngularJS module
+    angular.module('LunchCheck', [])
+    
+    // Define the controller and inject $scope using the $inject property to prevent minification issues
+    .controller('LunchCheckController', LunchCheckController);
 
-    // Function that updates outputMessage with the content of the input box
-    $scope.displayMessage = function() {
-        if (!$scope.message) {
-            $scope.outputMessage = "Please enter a message!";
-        } else {
-            $scope.outputMessage = $scope.message;
-        }
-    };
-}]);
+    // Explicitly inject $scope to protect the code from minification
+    LunchCheckController.$inject = ['$scope'];
 
-// Alternatively, define the controller using the $inject property explicitly
-app.controller('LunchCheckController').$inject = ['$scope'];
+    // Define the controller function
+    function LunchCheckController($scope) {
+        // Initial message value
+        $scope.outputMessage = '';
+
+        // Function to display the appropriate message based on the number of items
+        $scope.displayMessage = function() {
+            if (!$scope.message || $scope.message.trim() === "") {
+                $scope.outputMessage = "Please enter data first";
+            } else {
+                // Split the items by commas and remove empty items (if necessary)
+                var items = $scope.message.split(',').filter(function(item) {
+                    return item.trim() !== '';
+                });
+
+                // Determine the message based on the number of items
+                if (items.length === 0) {
+                    $scope.outputMessage = "Please enter data first"; // No valid items
+                } else if (items.length <= 3) {
+                    $scope.outputMessage = "Enjoy!";
+                } else {
+                    $scope.outputMessage = "Too much!";
+                }
+            }
+        };
+    }
+})();
+

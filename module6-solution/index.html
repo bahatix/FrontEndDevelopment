@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch Check</title>
+    <title>Lunch Assessor</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
@@ -15,11 +15,10 @@
         <!-- Use LunchCheckController -->
         <div ng-controller="LunchCheckController">
             <div class="input-box">
-                <!-- Comment indicating that empty items are NOT considered in the count -->
-                <!-- We do NOT consider an empty item (e.g., , ,) towards the count -->
+                <!-- I do NOT consider an empty item (e.g., , ,) towards the count -->
                 <input type="text" ng-model="message" 
                        ng-class="borderClass" 
-                       placeholder="List comma-separated items">
+                       placeholder="List comma-separated items. NB: An empty item is not considered in the count">
             </div>
 
             <!-- Button to trigger the check -->

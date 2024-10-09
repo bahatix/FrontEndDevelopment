@@ -1,67 +1,35 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* CSS for message text colors */
+.red-text {
+    color: red;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+.green-text {
+    color: green;
 }
 
-.container {
+/* CSS for textbox border colors */
+.red-border {
+    border: 2px solid red;
+}
+
+.green-border {
+    border: 2px solid green;
+}
+
+.input-box input {
     width: 100%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.input-box {
-    display: flex;
-    justify-content: space-between;
-}
-
-input[type="text"] {
-    width: 75%;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
 }
 
 button {
+    margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
 }
 
 .output-box {
     margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: 2px solid #ddd;
-    border-radius: 5px;
     font-size: 18px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
 }

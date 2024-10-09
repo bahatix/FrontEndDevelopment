@@ -6,23 +6,35 @@
     <title>Message Display</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
 <body>
     <div class="container">
         <h1>Message Display Box</h1>
-        <div class="input-box">
-            <input type="text" id="messageInput" placeholder="Type your message here...">
-            <button onclick="displayMessage()">Display Message</button>
-        </div>
-        <div class="output-box" id="outputMessage">
-            <!-- The message will be displayed here -->
+
+        <!-- Declare controller for this specific section -->
+        <div ng-controller="MessageController">
+            <!-- Textbox annotated with ng-model to bind its value to the controller -->
+            <div class="input-box">
+                <input type="text" ng-model="message" placeholder="Type your message here...">
+            </div>
+            
+            <!-- Button annotated with ng-click to hook a function from the controller -->
+            <div>
+                <button ng-click="displayMessage()">Display Message</button>
+            </div>
+            
+            <!-- Placeholder annotated with ng-bind to display a bound value from the controller -->
+            <div class="output-box">
+                <span ng-bind="outputMessage"></span>
+            </div>
         </div>
     </div>
 
+    <!-- Import AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
     <!-- Import the app.js file -->
     <script src="app.js"></script>
-    
 </body>
 </html>
+
 

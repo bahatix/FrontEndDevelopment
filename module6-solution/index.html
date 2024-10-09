@@ -12,12 +12,14 @@
     <div class="container">
         <h1>Lunch Check</h1>
 
-        <!-- Input textbox and button to check if the lunch amount is too much -->
+        <!-- Use LunchCheckController -->
         <div ng-controller="LunchCheckController">
             <div class="input-box">
                 <!-- Comment indicating that empty items are NOT considered in the count -->
                 <!-- We do NOT consider an empty item (e.g., , ,) towards the count -->
-                <input type="text" ng-model="message" placeholder="List comma-separated items">
+                <input type="text" ng-model="message" 
+                       ng-class="borderClass" 
+                       placeholder="List comma-separated items">
             </div>
 
             <!-- Button to trigger the check -->
@@ -25,9 +27,9 @@
                 <button ng-click="displayMessage()">Check If Too Much</button>
             </div>
 
-            <!-- Output message that displays under the input -->
+            <!-- Output message with dynamic text color -->
             <div class="output-box">
-                <span ng-bind="outputMessage"></span>
+                <span ng-class="messageClass">{{ outputMessage }}</span>
             </div>
         </div>
     </div>
@@ -36,5 +38,6 @@
     <script src="js/app.js"></script>
 </body>
 </html>
+
 
 

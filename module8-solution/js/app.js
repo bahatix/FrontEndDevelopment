@@ -70,7 +70,7 @@
   // Directive Definition
   function FoundItemsDirective() {
     var ddo = {
-      templateUrl: 'foundItems.html',
+      templateUrl: 'foundItems.html', // Points to embedded template in index.html
       scope: {
         items: '<',
         onRemove: '&'
@@ -83,9 +83,10 @@
     return ddo;
   }
 
-  // Directive Controller (if needed)
+  // Directive Controller (optional, for any directive-specific logic)
   function FoundItemsDirectiveController() {
     var dirCtrl = this;
   }
 
 })();
+

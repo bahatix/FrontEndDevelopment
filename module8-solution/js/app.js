@@ -1,92 +1,70 @@
 // app.js
-(function () {
-  'use strict';
+angular.module('NarrowItDownApp', [])
+.controller('NarrowItDownController', NarrowItDownController)
+.service('MenuSearchService', MenuSearchService)
+.directive('foundItems', FoundItemsDirective);
 
-  // Declare the AngularJS module
-  angular.module('NarrowItDownApp', [])
-    .controller('NarrowItDownController', NarrowItDownController)
-    .service('MenuSearchService', MenuSearchService)
-    .directive('foundItems', FoundItemsDirective);
+NarrowItDownController.$inject = ['MenuSearchService'];
+function NarrowItDownController(MenuSearchService) {
+  var narrowCtrl = this;
+  narrowCtrl.searchTerm = "";
+  narrowCtrl.found = [];
 
-  // Controller Definition
-  NarrowItDownController.$inject = ['MenuSearchService'];
-  function NarrowItDownController(MenuSearchService) {
-    var ctrl = this;
-    ctrl.searchTerm = "";
-    ctrl.found = [];
-    ctrl.noItemsFound = false;
+  narrowCtrl.narrowItDown = function () {
+    if (narrowCtrl.searchTerm) {
+      MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm)
+        .then(function (foundItems) {
+          narrowCtrl.found = foundItems;
+        });
+    } else {
+      narrowCtrl.found = [];
+    }
+  };
 
-    // Function to handle "Narrow It Down For Me!" button click
-    ctrl.narrowItDown = function () {
-      if (ctrl.searchTerm.trim() === "") {
-        ctrl.found = [];
-        ctrl.noItemsFound = true;
-        return;
-      }
+  narrowCtrl.removeItem = function (index) {
+    narrowCtrl.found.splice(index, 1);
+  };
+}
 
-      // Fetch matched menu items
-      MenuSearchService.getMatchedMenuItems(ctrl.searchTerm).then(function (foundItems) {
-        ctrl.found = foundItems;
-        ctrl.noItemsFound = foundItems.length === 0;
-      });
-    };
+MenuSearchService.$inject = ['$http'];
+function MenuSearchService($http) {
+  var service = this;
 
-    // Function to remove an item from the found list
-    ctrl.removeItem = function (index) {
-      ctrl.found.splice(index, 1);
-    };
-  }
+  service.getMatchedMenuItems = function (searchTerm) {
+    return $http({
+      method: "GET",
+      url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
+    }).then(function (response) {
+      var allItems = response.data;
+      var foundItems = [];
 
-  // Service Definition
-  MenuSearchService.$inject = ['$http'];
-  function MenuSearchService($http) {
-    var service = this;
-
-    // Method to fetch and filter menu items
-    service.getMatchedMenuItems = function (searchTerm) {
-      return $http({
-        method: "GET",
-        url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
-      }).then(function (result) {
-        var foundItems = [];
-        var items = result.data;
-
-        // Filter items by search term
-        angular.forEach(items, function (item) {
-          if (item.description && item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
-            foundItems.push({
-              name: item.name,
-              short_name: item.short_name,
-              description: item.description
-            });
+      // Loop through all categories and filter items by description match
+      angular.forEach(allItems, function (category) {
+        angular.forEach(category.menu_items, function (item) {
+          if (item.description.toLowerCase().includes(searchTerm.toLowerCase())) {
+            foundItems.push(item);
           }
         });
-
-        return foundItems;
       });
-    };
-  }
 
-  // Directive Definition
-  function FoundItemsDirective() {
-    var ddo = {
-      templateUrl: 'foundItems.html', // Points to embedded template in index.html
-      scope: {
-        items: '<',
-        onRemove: '&'
-      },
-      controller: FoundItemsDirectiveController,
-      controllerAs: 'dirCtrl',
-      bindToController: true
-    };
+      return foundItems;
+    });
+  };
+}
 
-    return ddo;
-  }
-
-  // Directive Controller (optional, for any directive-specific logic)
-  function FoundItemsDirectiveController() {
-    var dirCtrl = this;
-  }
-
-})();
-
+function FoundItemsDirective() {
+  return {
+    template: `
+      <ul>
+        <li ng-repeat="item in items">
+          {{ item.name }} ({{ item.short_name }}), {{ item.description }}
+          <button class="btn btn-danger btn-sm" ng-click="onRemove({ index: $index })">Don’t want this one!</button>
+        </li>
+      </ul>
+    `,
+    scope: {
+      items: '<',
+      onRemove: '&'
+    }
+  };
+}

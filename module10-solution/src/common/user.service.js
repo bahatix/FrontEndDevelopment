@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('public')
+  angular.module('common') // Register the service under 'common'
     .service('UserService', UserService);
 
   function UserService() {

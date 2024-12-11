@@ -1,0 +1,41 @@
+<form name="signupForm" ng-submit="signupCtrl.submit()" novalidate>
+  <div>
+    <label>First Name:</label>
+    <input type="text" name="firstName" ng-model="signupCtrl.user.firstName" required>
+    <div ng-show="signupForm.firstName.$touched && signupForm.firstName.$invalid">
+      First Name is required.
+    </div>
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input type="text" name="lastName" ng-model="signupCtrl.user.lastName" required>
+    <div ng-show="signupForm.lastName.$touched && signupForm.lastName.$invalid">
+      Last Name is required.
+    </div>
+  </div>
+  <div>
+    <label>Email:</label>
+    <input type="email" name="email" ng-model="signupCtrl.user.email" required>
+    <div ng-show="signupForm.email.$touched && signupForm.email.$invalid">
+      Enter a valid email.
+    </div>
+  </div>
+  <div>
+    <label>Phone:</label>
+    <input type="tel" name="phone" ng-model="signupCtrl.user.phone" required>
+    <div ng-show="signupForm.phone.$touched && signupForm.phone.$invalid">
+      Phone number is required.
+    </div>
+  </div>
+  <div>
+    <label>Favorite Menu Item:</label>
+    <input type="text" name="favoriteItem" ng-model="signupCtrl.user.favoriteItem" required ng-blur="signupCtrl.validateFavorite()">
+    <div ng-show="signupCtrl.favoriteError">
+      {{ signupCtrl.favoriteError }}
+    </div>
+  </div>
+  <button type="submit" ng-disabled="signupForm.$invalid">Submit</button>
+</form>
+<div ng-show="signupCtrl.successMessage">
+  {{ signupCtrl.successMessage }}
+</div>

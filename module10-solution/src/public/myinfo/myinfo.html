@@ -1,11 +1,29 @@
-<div ng-if="!myinfoCtrl.user">
-  <p>Not Signed Up Yet. <a ui-sref="signup">Sign up Now!</a></p>
+<div class="container" ng-controller="MyInfoController as myinfoCtrl">
+  <!-- If user has not signed up -->
+  <div ng-if="!myinfoCtrl.user">
+    <p>{{ myinfoCtrl.message }}</p>
+    <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+
+  <!-- If user has signed up -->
+  <div ng-if="myinfoCtrl.user">
+    <h2>Your Information</h2>
+    <p><strong>First Name:</strong> {{ myinfoCtrl.user.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ myinfoCtrl.user.lastName }}</p>
+    <p><strong>Email:</strong> {{ myinfoCtrl.user.email }}</p>
+    <p><strong>Phone:</strong> {{ myinfoCtrl.user.phone }}</p>
+
+    <h3>Your Favorite Menu Item</h3>
+    <!-- If favorite item details are available -->
+    <div ng-if="myinfoCtrl.favoriteItem">
+      <p><strong>Name:</strong> {{ myinfoCtrl.favoriteItem.name }}</p>
+      <p><strong>Description:</strong> {{ myinfoCtrl.favoriteItem.description }}</p>
+      <img ng-src="{{ myinfoCtrl.favoriteItem.image }}" alt="{{ myinfoCtrl.favoriteItem.name }}" class="img-responsive">
+    </div>
+    <!-- If favorite item details are not available -->
+    <div ng-if="myinfoCtrl.message">
+      <p>{{ myinfoCtrl.message }}</p>
+    </div>
+  </div>
 </div>
-<div ng-if="myinfoCtrl.user">
-  <p><strong>First Name:</strong> {{ myinfoCtrl.user.firstName }}</p>
-  <p><strong>Last Name:</strong> {{ myinfoCtrl.user.lastName }}</p>
-  <p><strong>Email:</strong> {{ myinfoCtrl.user.email }}</p>
-  <p><strong>Phone:</strong> {{ myinfoCtrl.user.phone }}</p>
-  <p><strong>Favorite Menu Item:</strong> {{ myinfoCtrl.favoriteItem.name }}</p>
-  <img ng-src="{{ myinfoCtrl.favoriteItem.image }}" alt="{{ myinfoCtrl.favoriteItem.name }}">
-</div>
+
